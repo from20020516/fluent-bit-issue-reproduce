@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  fluent:
+    # 1.8.12 is fine.
+    image: fluent/fluent-bit:${VERSION:-1.8.13}-debug
+    volumes:
+      - ./fluent-bit/etc/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+      - ./fluent-bit/log:/fluent-bit/log
+      - log-volume:/var/log
+  logger:
+    image: node:lts
+    working_dir: /app
+    volumes:
+      - ./app:/app
+      - log-volume:/var/log
+    command: npx ts-node index.ts
+volumes:
+  # Share log files in an environment where inodes are reused.
+  # $ docker info
+  #   Backing Filesystem: extfs
+  log-volume:

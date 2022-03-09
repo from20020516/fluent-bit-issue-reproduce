@@ -1,0 +1,12 @@
+{
+  "name": "fluent-bit",
+  "version": "1.0.0",
+  "scripts": {
+    "rm": "rm -f ../fluent-bit/log/sample-tail.log",
+    "tail": "tail -F ../fluent-bit/log/sample-tail.log"
+  },
+  "devDependencies": {
+    "ts-node": "^10.6.0",
+    "typescript": "^4.6.2"
+  }
+}
