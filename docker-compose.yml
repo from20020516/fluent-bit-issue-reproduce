@@ -5,7 +5,6 @@ services:
     image: fluent/fluent-bit:${VERSION:-1.8.13}-debug
     volumes:
       - ./fluent-bit/etc/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
-      - ./fluent-bit/log:/fluent-bit/log
       - log-volume:/var/log
   logger:
     image: node:lts
