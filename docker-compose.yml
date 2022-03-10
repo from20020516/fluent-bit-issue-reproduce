@@ -4,7 +4,7 @@ services:
     # 1.8.12 is fine.
     image: fluent/fluent-bit:${VERSION:-1.8.13}-debug
     volumes:
-      - ./fluent-bit/etc/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+      - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
       - log-volume:/var/log
   logger:
     image: node:lts
